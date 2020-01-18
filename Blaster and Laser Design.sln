@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blaster and Laser Design", "Blaster and Laser Design\Blaster and Laser Design.csproj", "{33BC8858-861D-4A86-8313-DE46B9F8A7B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLDesign", "BLDesign\BLDesign.csproj", "{26B1286A-5E78-47FD-BDB4-8DD6F341CB07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{33BC8858-861D-4A86-8313-DE46B9F8A7B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33BC8858-861D-4A86-8313-DE46B9F8A7B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33BC8858-861D-4A86-8313-DE46B9F8A7B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26B1286A-5E78-47FD-BDB4-8DD6F341CB07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26B1286A-5E78-47FD-BDB4-8DD6F341CB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26B1286A-5E78-47FD-BDB4-8DD6F341CB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26B1286A-5E78-47FD-BDB4-8DD6F341CB07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Blaster_and_Laser_Design
+﻿namespace BLDesign
 {
     enum Beams
     {
@@ -30,9 +24,10 @@ namespace Blaster_and_Laser_Design
         NeuralDisraptor = 19,
         MindDisraptor = 20
     }
+
     enum TLs
     {
-        TL8 = 0,        
+        TL8 = 0,
         TL9 = 1,
         TL10 = 2,
         TL11 = 3,
@@ -67,6 +62,7 @@ namespace Blaster_and_Laser_Design
         SlowGen5 = 7,
         SlowGen10 = 8
     }
+
     enum Configrations
     {
         Beamer = 0,
@@ -77,12 +73,14 @@ namespace Blaster_and_Laser_Design
         Staf = 5,
         HeavyWeapon = 6
     }
+
     enum Barells
     {
         Standart = 0,
         Light = 1,
         Heavy = 2
     }
+
     /// <summary>
     /// Divide by 100 for formulas
     /// </summary>
