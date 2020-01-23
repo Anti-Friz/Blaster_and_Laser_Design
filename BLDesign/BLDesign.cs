@@ -1,6 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+//GURPS is a trademark of Steve Jackson Games, and its rules and art are copyrighted by Steve Jackson Games. All rights are reserved by Steve Jackson Games. 
+//This game aid is the original creation of AntiFriz and is released for free distribution, and not for resale, under the permissions granted in the http://www.sjgames.com/general/online_policy.html.
+
+//Copyright 2020 AntiFriz
+//Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"),
+//to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+//The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+//LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 namespace BLDesign
 {
@@ -779,10 +792,63 @@ namespace BLDesign
             return basecl;
         }
 
-        public string GetFormatedDamage(double d, Beams beam)
+        public string GetFormatedDamage(double d, Beams beam,  out string specials, int range = 0)
         {
-
-            return "";
+            specials = null;
+            switch (beam)
+            {
+                case Beams.Laser:
+                   return string.Format($"{RoundDamage(d)} (2) burn");
+                case Beams.Blaster:
+                    specials = $"Дальность стрельбы в вакууме {range*0.2} ярдов";
+                    return string.Format($"{RoundDamage(d)} (5) burn surge");
+                case Beams.NeutralParticleBeam:
+                    specials = $"Не работает в атмосфере. Может работать как бластер с х2 выстрелов.";
+                    return string.Format($"{RoundDamage(d)} burn surge rad");
+                case Beams.RainbowLaser:
+                    specials = $"В вакууме и следах атмосферы: дальность стрельбы  {range * 0.1} ярдов и отсутствует делитель брони.";
+                    return string.Format($"{RoundDamage(d)} (3) burn");
+                case Beams.XRayLaser:
+                    specials = $"В атмосфере дальность равна 7/20 ярдов деленные на давление в атмосферах";
+                    return string.Format($"{RoundDamage(d)} (5) burn surge");
+                case Beams.Pulsar:
+                    specials = $"В атмосфере дальность равна 1000 ярдов деленные на давление в атмосферах";
+                    return string.Format($"{RoundDamage(d)} (3) cr exp rad surge");
+                case Beams.Graser:
+                    specials = $"В атмосфере дальность равна 7/20 ярдов деленные на давление в атмосферах";
+                    return string.Format($"{RoundDamage(d)} (10) burn surge");
+                case Beams.LowTechLaser:
+                    return string.Format($"{RoundDamage(d)} (0.5) burn");
+                case Beams.Electrolaser:
+                    return string.Format($"HT-{Math.Round(d)} (2) aff with linked 1d-3 burn");
+                case Beams.SonicStunner:
+                    return string.Format($"HT-{Math.Round(d)} (5) aff");
+                case Beams.HighOutputPulseLaser:
+                    return string.Format($"{RoundDamage(d)} (3) pi inc");
+                case Beams.Plasma:
+                    return string.Format($"{RoundDamage(d)} (2) burn ex sur");
+                case Beams.PlasmaFlamer:
+                    return string.Format($"{RoundDamage(d)} burn");
+                case Beams.PlasmaLance:
+                    return string.Format($"{RoundDamage(d)} (10) burn ex");
+                case Beams.SonicScreamer:
+                    return string.Format($"{RoundDamage(d)} cor");
+                case Beams.SoundDisruptors:
+                    return string.Format($"{RoundDamage(d)} cor");
+                case Beams.GravitonBeam:
+                    return string.Format($"{RoundDamage(d)} (inf) cr nkb");
+                case Beams.ForceBeam:
+                    return string.Format($"{RoundDamage(d)} cr dkb");
+                case Beams.Disraptor:
+                    specials = "Силовые поля защищают на 1/10 от их DR";
+                    return string.Format($"{RoundDamage(d)} (inf) cor");
+                case Beams.NeuralDisraptor:
+                    return string.Format($"HT-{Math.Round(d)} (inf) aff");
+                case Beams.MindDisraptor:
+                    return string.Format($"Will-{Math.Round(d)} (inf) aff");
+                default:
+                    return null;
+            }
         }
 
         private string RoundDamage(double d)
